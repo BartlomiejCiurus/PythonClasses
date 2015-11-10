@@ -12,6 +12,7 @@ def add_fraction(fraction1, fraction2):
             return [fraction1[0] + fraction2[0], fraction1[1]]
         else:
             return [fraction1[0] * fraction2[1] + fraction2[0] * fraction1[1], fraction1[1] * fraction2[1]]
+    print("Zero in denominator!")
     return [0, 0]
 
 def sub_fraction(fraction1, fraction2):
@@ -20,16 +21,19 @@ def sub_fraction(fraction1, fraction2):
             return [fraction1[0] - fraction2[0], fraction1[1]]
         else:
             return [fraction1[0] * fraction2[1] - fraction2[0] * fraction1[1], fraction1[1] * fraction2[1]]
+    print("Zero in denominator!")
     return [0, 0]
 
 def mul_fraction(fraction1, fraction2):
     if is_denominator_valid(fraction1) and is_denominator_valid(fraction2):
         return [fraction1[0] * fraction2[0], fraction1[1] * fraction2[1]]
+    print("Zero in denominator!")
     return [0, 0]
 
 def div_fraction(fraction1, fraction2):
     if is_denominator_valid(fraction1) and is_denominator_valid(fraction2):
         return [fraction1[0] * fraction2[1], fraction1[1] * fraction2[0]]
+    print("Zero in denominator!")
     return [0, 0]
 
 def is_positive(fraction):
@@ -39,6 +43,7 @@ def is_positive(fraction):
 def is_zero(fraction):
     if is_denominator_valid(fraction):
         return fraction[0] == 0
+    print("Zero in denominator!")
     return False
 
 def cmp_fractions(fraction1, fraction2):
