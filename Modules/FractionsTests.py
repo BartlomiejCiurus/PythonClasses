@@ -3,8 +3,8 @@ import fractions
 
 __author__ = 'Bartlomiej Ciurus'
 
-class TestFractions(unittest.TestCase):
 
+class TestFractions(unittest.TestCase):
     def test_add_fractions(self):
         self.assertEqual(fractions.add_fraction([1, 2], [1, 2]), [2, 2])
         self.assertEqual(fractions.add_fraction([1, 3], [3, 4]), [13, 12])
@@ -34,6 +34,7 @@ class TestFractions(unittest.TestCase):
         self.assertEqual(fractions.cmp_fractions([1, 2], [1, 2]), 0)
         self.assertEqual(fractions.cmp_fractions([1, 2], [1, 4]), 1)
         self.assertEqual(fractions.cmp_fractions([1, 2], [5, 4]), 2)
+        self.assertEqual(fractions.cmp_fractions([1, -3], [1, 2]), 2)
 
     def test_fraction2float(self):
         self.assertEqual(fractions.fraction2float([1, 2]), 0.5)
@@ -42,5 +43,3 @@ class TestFractions(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-

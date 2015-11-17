@@ -3,7 +3,8 @@ from Tools.Scripts.treesync import raw_input
 __author__ = 'Bartek'
 
 while True:
-    try:
-        value = int(raw_input("Podaj wartosc: "))
-    except:
-
+    value = raw_input("Podaj wartosc: ")
+    if value == "stop\n":
+        break
+    intValue = int(value)
+    print("x: " + value + "x^3: " + str(pow(intValue, 3)))
