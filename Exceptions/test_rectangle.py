@@ -1,3 +1,4 @@
+from collections.__main__ import Point
 from unittest import TestCase
 from Exceptions.rectangle import Rectangle
 
@@ -7,7 +8,7 @@ class TestRectangle(TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 1, 3, -5)
         rectangle_example = Rectangle(2, 5, 3, 6)
-        self.assertEqual((rectangle_example.x1, rectangle_example.y1, rectangle_example.x2, rectangle_example.y2),
+        self.assertEqual((rectangle_example.pt1.x, rectangle_example.pt1.y, rectangle_example.pt2.x, rectangle_example.pt2.y),
                          (2, 5, 3, 6))
 
     def testStr(self):
@@ -29,8 +30,8 @@ class TestRectangle(TestCase):
         self.assertTrue(Rectangle(-31, 0, 3, 15) != Rectangle(-31, 0, 3, 14))
 
     def testCenter(self):
-        self.assertEqual(Rectangle(-31, 0, 3, 15).center(), (-14.0, 7.5))
-        self.assertEqual(Rectangle(-31.5, 0, 3, 15).center(), (-14.25, 7.5))
+        self.assertEqual(Rectangle(-31, 0, 3, 15).center(), Point(-14.0, 7.5))
+        self.assertEqual(Rectangle(-31.5, 0, 3, 15).center(), Point(-14.25, 7.5))
 
     def testArea(self):
         self.assertEqual(Rectangle(-31, 0, 3, 15).area(), 510.0)

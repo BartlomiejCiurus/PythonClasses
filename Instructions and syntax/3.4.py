@@ -6,5 +6,9 @@ while True:
     value = raw_input("Podaj wartosc: ")
     if value == "stop\n":
         break
-    intValue = int(value)
+    try:
+        intValue = int(value)
+    except ValueError:
+        print("Wyglada na to, ze podana wartosc nie jest wartoscia typu integer!")
+        continue
     print("x: " + value + "x^3: " + str(pow(intValue, 3)))

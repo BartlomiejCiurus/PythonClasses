@@ -2,10 +2,8 @@ __author__ = 'Bartek'
 
 
 class Fraction:
-    counter = 0
-    denominator = 0
 
-    def __init__(self, counter, denominator):
+    def __init__(self, counter=0, denominator=0):
         self.counter = counter
         self.denominator = denominator
 
@@ -44,14 +42,10 @@ class Fraction:
         return Fraction(self.counter * fraction.denominator, self.denominator * fraction.counter)
 
     def __pos__(self):
-        if self.is_positive():
-            return self
-        return Fraction(self.counter * -1, self.denominator)
+        return Fraction(self.counter * (+1), self.denominator)
 
     def __neg__(self):
-        if not self.is_positive():
-            return self
-        return Fraction(self.counter * -1, self.denominator)
+        return Fraction(self.counter * (-1), self.denominator)
 
     def __invert__(self):
         return Fraction(self.denominator, self.counter)

@@ -21,7 +21,7 @@ class TestCircle(TestCase):
         with self.assertRaises(ValueError):
             Circle(1, 1, -1)
         circle_example = Circle(1, 1, 1)
-        self.assertEqual((circle_example.x, circle_example.y, circle_example.radius), (1, 1, 1))
+        self.assertEqual((circle_example.pt.x, circle_example.pt.y, circle_example.radius), (1, 1, 1))
 
     def testRepr(self):
         self.assertEqual(repr(Circle(1, -1, 1)), "Circle(1, -1, 1)")
