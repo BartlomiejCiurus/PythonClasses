@@ -1,24 +1,35 @@
 def remove_head(node):
-    node.value = node.next_node
-    node.next_node = node.next_node.next_node
-    return Node(node.value, node.next_node)
+    if node is None:
+        raise ValueError
+    temp = node
+    wart = node.data
+    node = node.next
+    del temp
+    return node, wart
 
 
 def remove_tail(node):
-    current_node = node
-    tail = None
-    one_before_tail = None
-    while current_node:
-        one_before_tail = tail
-        tail = current_node
-        current_node = current_node.next_node
-    tail.next_node = None
-    tail.value = None
-    one_before_tail.next_node = None
-    return Node(one_before_tail.value, one_before_tail.next_node)
+    if node is None:
+        raise ValueError
+    elif node.next is None:
+        wart = node.data
+        del node
+        return None, wart
+    else:
+        previous = node
+        actual = node.next
+        while actual.next:
+            previous, actual = actual, actual.next
+        wart = actual.data
+        del actual
+        previous.next = None
+        return node, wart
 
 
 class Node:
-    def __init__(self, value=None, next_node=None):
-        self.value = value
-        self.next_node = next_node
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+    def __str__(self):
+        return str(self.data)
