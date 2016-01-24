@@ -8,10 +8,10 @@ def solve1(a, b, c):
     else:
         if a == 0 and b != 0:
             y = - c / b
-            print("x = 0 , y = " + str(y))
+            print("x dowolne , y = " + str(y))
         elif a != 0 and b == 0:
             x = - c / a
-            print("x = " + str(x) + ", y = 0")
+            print("x = " + str(x) + ", y dowolne")
         else:
             x = - c / a
             y = c / b
